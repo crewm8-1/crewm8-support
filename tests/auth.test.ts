@@ -10,7 +10,7 @@ let baseUrl: string;
 
 before(async () => {
   await migrate();
-  await pool.query("DELETE FROM agents");
+  await pool.query("TRUNCATE crewm8_agents CASCADE");
   server = await new Promise<Server>((resolve) => {
     const s = app.listen(0, () => resolve(s));
   });

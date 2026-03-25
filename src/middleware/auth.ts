@@ -33,7 +33,7 @@ export async function requireAuth(
   }
 
   const result = await pool.query(
-    "SELECT id, agent_id, token_hash, harness, agent_name, operator_name, operator_email, status, created_at FROM agents WHERE status = $1",
+    "SELECT id, agent_id, token_hash, harness, agent_name, operator_name, operator_email, status, created_at FROM crewm8_agents WHERE status = $1",
     ["active"],
   );
 

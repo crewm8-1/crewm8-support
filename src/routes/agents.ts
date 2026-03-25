@@ -38,7 +38,7 @@ router.post("/v1/agents/register", async (req: Request, res: Response) => {
   const tokenHash = await bcrypt.hash(token, 10);
 
   const result = await pool.query(
-    `INSERT INTO agents (agent_id, token_hash, harness, agent_name, operator_name, operator_email, status)
+    `INSERT INTO crewm8_agents (agent_id, token_hash, harness, agent_name, operator_name, operator_email, status)
      VALUES ($1, $2, $3, $4, $5, $6, 'active')
      RETURNING agent_id, harness, status, created_at`,
     [agentId, tokenHash, harness, agent_name, operator_name, operator_email],
